@@ -1,0 +1,22 @@
+{
+    "name": "browserlife/BrlReCaptcha",
+    "type": "library",
+    "description": "ReCaptcha v2.0 module for Zend Framework 2 (ZF2)",
+    "keywords": ["zf2","recaptcha",  "captcha"],
+    "homepage": "https://github.com/malganis93/BrlReCaptcha",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lars Lohmann",
+            "email": "lars@browserlife.de",
+            "homepage": "http://browserlife.de",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "zendframework/zendframework": "2.3.*"
+    },
+
+}
+

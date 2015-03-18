@@ -1,5 +1,5 @@
 {
-    "name": "browserlife/BrlReCaptcha",
+    "name": "browserlife/recaptcha",
     "type": "library",
     "description": "ReCaptcha v2.0 module for Zend Framework 2 (ZF2)",
     "keywords": ["zf2","recaptcha",  "captcha"],

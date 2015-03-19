@@ -137,7 +137,8 @@ class ReCaptchaService {
         }
 
         $httpClient = new HttpClient();
-
+	//Using curl, since socket makes trouble
+	$httpClient->setAdapter('Zend\Http\Client\Adapter\Curl');
         $request = new HttpRequest();
         $request->setUri(self::VERIFY_SERVER);
         $request->setMethod(HttpRequest::METHOD_POST);

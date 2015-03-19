@@ -14,6 +14,8 @@ and run
 php composer.phar update
 ```
 
+Since there are problems with the SSL-Cert if you use Adapter\Socket, please install php-curl! 
+
 Then activate the module in your application.config.php :
 
     ```php

@@ -4,7 +4,28 @@ This modules makes it possible to use the new ReCaptcha [LINK](https://www.googl
 
 I created this module, since [ZendFrameworkService\ReCaptcha](https://github.com/zendframework/ZendService_ReCaptcha) seems to be dead and is still on RCv1. 
 ## Installation 
-TODO
+### with composer
+Just add the following line to your requirements:
+```json
+"browserlife/zf2-recaptcha": "dev-master"
+```
+and run
+```bash
+php composer.phar update
+```
+
+Then activate the module in your application.config.php :
+
+    ```php
+    return array(
+        'modules' => array(
+            // ...
+            'BrlReCaptcha',
+        ),
+        // ...
+    );
+    ```
+
 
 ## Get your private-key 
 To use this service, you have to register at [Google ReCaptcha](https://www.google.com/recaptcha) using your Google-Account.

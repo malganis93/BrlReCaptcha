@@ -141,10 +141,11 @@ class ReCaptcha extends AbstractAdapter {
      * validation failed.
      *
      * @param  mixed $value
+     * @param  mixed $context Param for ZF2.4
      * @return bool
      * @throws Exception\RuntimeException If validation of $value is impossible
      */
-    public function isValid($value)
+    public function isValid($value, $context = null)
     {
 
         if (!$value){

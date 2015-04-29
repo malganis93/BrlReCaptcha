@@ -1,11 +1,11 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: lars
  * Date: 18.03.15
- * Time: 00:30
+ * Time: 00:30.
  */
-
 namespace BrlReCaptcha\Service;
 
 use Zend\Http\Client as HttpClient;
@@ -13,27 +13,24 @@ use Zend\Http\Request as HttpRequest;
 use Zend\Http\Response as HttpResponse;
 
 /**
- * Class ReCaptchaService
- * @package BrlShort\ReCaptcha\Service
+ * Class ReCaptchaService.
  */
-class ReCaptchaService {
-
+class ReCaptchaService
+{
     /**
-     *  The URL for to verify an Captcha
+     *  The URL for to verify an Captcha.
      */
-    const VERIFY_SERVER = "https://www.google.com/recaptcha/api/siteverify";
+    const VERIFY_SERVER = 'https://www.google.com/recaptcha/api/siteverify';
 
     /**
      * @var String The secret-key from recaptcha
      */
     protected $privateKey = null;
 
-
     /**
      * @var String the public-key from recaptcha
      */
     protected $publicKey = null;
-
 
     /**
      * @var String Error code from request
@@ -44,15 +41,13 @@ class ReCaptchaService {
      * @param null $privateKey
      * @param null $publicKey
      */
-    function __construct($privateKey = null, $publicKey=null)
+    public function __construct($privateKey = null, $publicKey = null)
     {
         $this->privateKey = $privateKey;
         $this->publicKey = $publicKey;
     }
 
-
     /**
-     * @return null
      */
     public function getPrivateKey()
     {
@@ -83,9 +78,6 @@ class ReCaptchaService {
         $this->publicKey = $publicKey;
     }
 
-
-
-
     /**
      * @return String
      */
@@ -102,34 +94,32 @@ class ReCaptchaService {
         $this->errorCode = $errorCode;
     }
 
-
     /**
      * @param $clientResponse
      * @param null $ip
+     *
      * @return bool
      */
-    public function verify($clientResponse, $ip = null) {
+    public function verify($clientResponse, $ip = null)
+    {
 
         //send the request to google recaptcha
         $request = $this->sendApiRequest($clientResponse, $ip);
         // and validate it
         return  $this->verifyApiResponse($request);
-
     }
-
-
-
 
     /**
      * @param $response
      * @param null $ip
+     *
      * @return HttpResponse
      */
     public function sendApiRequest($response, $ip = null)
     {
         $postParams = array(
             'secret' => $this->getPrivateKey(),
-            'response' => $response
+            'response' => $response,
         );
 
         if ($ip) {
@@ -137,8 +127,8 @@ class ReCaptchaService {
         }
 
         $httpClient = new HttpClient();
-	//Using curl, since socket makes trouble
-	$httpClient->setAdapter('Zend\Http\Client\Adapter\Curl');
+    //Using curl, since socket makes trouble
+        $httpClient->setAdapter('Zend\Http\Client\Adapter\Curl');
         $request = new HttpRequest();
         $request->setUri(self::VERIFY_SERVER);
         $request->setMethod(HttpRequest::METHOD_POST);
@@ -150,22 +140,22 @@ class ReCaptchaService {
 
     /**
      * @param HttpResponse $response
+     *
      * @return bool
      */
-    public function verifyApiResponse(HttpResponse $response) {
+    public function verifyApiResponse(HttpResponse $response)
+    {
         $body = $response->getBody();
-        $content = json_decode($body,true);
+        $content = json_decode($body, true);
 
         //get the status
-        if ($content['success'] == true ) {
+        if ($content['success'] == true) {
             return true;
         } else {
-
             //TODO: One or more codes at ones?
             $this->setErrorCode(implode(',', $content['error-codes']));
+
             return false;
         }
-
     }
-
 }

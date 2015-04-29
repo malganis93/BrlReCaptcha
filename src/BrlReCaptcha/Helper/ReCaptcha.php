@@ -1,29 +1,24 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: lars
  * Date: 18.03.15
- * Time: 00:43
+ * Time: 00:43.
  */
-
 namespace BrlReCaptcha\Helper;
-
 
 use Zend\Form\ElementInterface;
 use Zend\Form\View\Helper\FormInput;
 
-
 /**
- * Class ReCaptcha
- * @package BrlShort\ReCaptcha\Input
- *
- * This is just a simple ViewHelper/Input to render content for Zend\Form
- *
+ * Class ReCaptcha.
  */
-class ReCaptcha extends FormInput {
-
+class ReCaptcha extends FormInput
+{
     /**
      * @param ElementInterface $element
+     *
      * @return string|FormInput
      */
     public function __invoke(ElementInterface $element = null)
@@ -37,17 +32,14 @@ class ReCaptcha extends FormInput {
 
     /**
      * @param ElementInterface $element
+     *
      * @return string
      */
     public function render(ElementInterface $element)
     {
-
-
-
         $captcha = $element->getCaptcha();
 
         $pubkey = $captcha->getPubkey();
-
 
         $html = '<div class="g-recaptcha" data-sitekey="'.$pubkey.'"></div>';
         //Add the js for the recaptcha api
@@ -55,6 +47,4 @@ class ReCaptcha extends FormInput {
 
         return $html;
     }
-
-
 }

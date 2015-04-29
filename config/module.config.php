@@ -1,11 +1,11 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: lars
  * Date: 18.03.15
- * Time: 20:00
+ * Time: 20:00.
  */
-
 
 return array(
 

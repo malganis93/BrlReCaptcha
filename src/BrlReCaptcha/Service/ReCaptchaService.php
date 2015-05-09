@@ -32,6 +32,9 @@ class ReCaptchaService
      */
     protected $publicKey = null;
 
+    /** @var string light or dark theme */
+    protected $theme = 'light';
+
     /**
      * @var String Error code from request
      */
@@ -76,6 +79,22 @@ class ReCaptchaService
     public function setPublicKey($publicKey)
     {
         $this->publicKey = $publicKey;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTheme()
+    {
+        return $this->theme;
+    }
+
+    /**
+     * @param string $theme
+     */
+    public function setTheme($theme)
+    {
+        $this->theme = $theme;
     }
 
     /**

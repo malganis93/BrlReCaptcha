@@ -37,11 +37,14 @@ class ReCaptcha extends FormInput
      */
     public function render(ElementInterface $element)
     {
+        /** @var \BrlReCaptcha\ReCaptcha $captcha */
         $captcha = $element->getCaptcha();
 
         $pubkey = $captcha->getPubkey();
 
-        $html = '<div class="g-recaptcha" data-sitekey="'.$pubkey.'"></div>';
+        $theme = $captcha->getTheme();
+
+        $html = '<div class="g-recaptcha" data-sitekey="'.$pubkey.'" data-theme="'.$theme.'"></div>';
         //Add the js for the recaptcha api
         $this->view->headScript()->appendFile('https://www.google.com/recaptcha/api.js');
 

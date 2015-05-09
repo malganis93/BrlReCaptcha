@@ -1,4 +1,4 @@
-# BrlReCaptcha - A ZF2 Module for Google ReCaptchaV2 # 
+# BrlReCaptcha - A ZF2 Module for Google ReCaptchaV2 
  
 This modules makes it possible to use the new ReCaptcha [LINK](https://www.google.com/recaptcha) in your ZendFramework2 (ZF2) projects. 
 

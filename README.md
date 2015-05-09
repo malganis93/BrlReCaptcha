@@ -39,12 +39,13 @@ This module works similar as [ZendFrameworkService\ReCaptcha](https://github.com
 Just add the following lines to your form creation:
 ```
 $element = new \Zend\Captcha\Captcha('g-captcha-response');
-$element->setCaptcha(new BrlReCaptcha\ReCaptcha(array('private_key' => 'YOUR_SECRET FROM GOOGLE', 'public_key' => 'YOUR_PUBLIC_KEY')));
+$element->setCaptcha(new BrlReCaptcha\ReCaptcha(array('private_key' => 'YOUR_SECRET FROM GOOGLE', 'public_key' => 'YOUR_PUBLIC_KEY', 'theme' => 'dark')));
 $form->add($element);
 
 ```
 Remember to add this element to your validationChain as well. 
 
+Note: The theme parameter is not required. By default the light theme is used. 
 
 It acts the same way as any other built-in captcha solution.
  

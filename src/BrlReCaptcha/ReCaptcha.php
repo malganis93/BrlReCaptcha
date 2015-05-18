@@ -101,7 +101,8 @@ class ReCaptcha extends AbstractAdapter
      * @param $theme
      * @return $this
      */
-    public function setTheme($theme) {
+    public function setTheme($theme)
+    {
         $this->getService()->setTheme($theme);
 
         return $this;
@@ -110,7 +111,8 @@ class ReCaptcha extends AbstractAdapter
     /**
      * @return string
      */
-    public function getTheme() {
+    public function getTheme()
+    {
         return $this->getService()->getTheme();
     }
 

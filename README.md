@@ -1,4 +1,5 @@
-# BrlReCaptcha - A ZF2 Module for Google ReCaptchaV2 # 
+# BrlReCaptcha - A ZF2 Module for Google ReCaptchaV2 
+Build Status: [![build status](https://ci.browserlife.de/projects/1/status.png?ref=master)](https://ci.browserlife.de/projects/1?ref=master)
  
 This modules makes it possible to use the new ReCaptcha [LINK](https://www.google.com/recaptcha) in your ZendFramework2 (ZF2) projects. 
 
@@ -39,12 +40,13 @@ This module works similar as [ZendFrameworkService\ReCaptcha](https://github.com
 Just add the following lines to your form creation:
 ```
 $element = new \Zend\Captcha\Captcha('g-captcha-response');
-$element->setCaptcha(new BrlReCaptcha\ReCaptcha(array('private_key' => 'YOUR_SECRET FROM GOOGLE', 'public_key' => 'YOUR_PUBLIC_KEY')));
+$element->setCaptcha(new BrlReCaptcha\ReCaptcha(array('private_key' => 'YOUR_SECRET FROM GOOGLE', 'public_key' => 'YOUR_PUBLIC_KEY', 'theme' => 'dark')));
 $form->add($element);
 
 ```
 Remember to add this element to your validationChain as well. 
 
+Note: The theme parameter is not required. By default the light theme is used. 
 
 It acts the same way as any other built-in captcha solution.
  
@@ -68,4 +70,4 @@ just look into the sources! It's pretty easy to understand.
 
 ## Questions? 
 If you have any problems or questions regarding my code, please create an issue.
-Since i'm using this module for my own projects i'm interested in keeping this up to date! 
+Since i'm using this module for my own projects i'm interested in keeping this up to date!

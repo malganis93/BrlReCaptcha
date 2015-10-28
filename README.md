@@ -39,12 +39,14 @@ This module works similar as [ZendFrameworkService\ReCaptcha](https://github.com
 
 Just add the following lines to your form creation:
 ```
-$element = new \Zend\Captcha\Captcha('g-captcha-response');
+$element = new \Zend\Captcha\Captcha('g-recaptcha-response');
 $element->setCaptcha(new BrlReCaptcha\ReCaptcha(array('private_key' => 'YOUR_SECRET FROM GOOGLE', 'public_key' => 'YOUR_PUBLIC_KEY', 'theme' => 'dark')));
 $form->add($element);
 
 ```
-Remember to add this element to your validationChain as well. 
+Important: The element has to be named g-recaptcha-response due to the reason that the JS from google creates this virtual input.
+
+Remember to add this element to your validationChain as well.
 
 Note: The theme parameter is not required. By default the light theme is used. 
 
